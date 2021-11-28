@@ -1,0 +1,68 @@
+item-invsee-name: '&cInvsee &f(Clique droit)'
+item-freeze-name: '&bFreeze &f(Clique droit)'
+item-minerais-name: '&7Minerais &f(Clique droit)'
+item-informations-name: '&eInformations &f(Clique droit)'
+item-kill-name: '&4Kill &f(Clique droit)'
+item-vanish-activated-name: '&aVanish &f(Actuellement activé)'
+item-vanish-desactivated-name: '&cVanish &f(Actuellement desactivé)'
+item-radomtp-name: '&arandom tp'
+item-quit-name: '&cQuitter le mode moderateur'
+
+message-freeze: 'Vous êtes actuellement freeze. Veuillez rejoindre notre discord ./discord'
+message-unfreeze: 'Vous êtes desormais liberable'
+message-joinmod: 'Vous venez de passer en mode moderateur'
+message-quitmod: 'Vous venez de quitter le mode moderateur'
+message-freeze-someone: 'Vous venez de freeze {PLAYER}'
+message-unfreeze-someone: 'Vous venez de unfreeze {PLAYER}'
+message-vanish: 'Vous ête deshormais vanish'
+message-unvanish: 'Vous ête deshormais plus vanish'
+message-kill: 'Vous venez d''être tué par un moderateur'
+message-confirmkill: 'Êtes vous sûr de vouloir tuer {PLAYER}'
+
+message-config-reloaded: 'Config reload avec succès'
+message-config-reloaded-error: 'Config mal reload veuillez verifier la console'
+message-nopermission: 'Vous n''avez pas la permission de faire cela'
+message-message-expired: 'Ce message a expiré'
+
+minerais-COAL: '&8Charbon'
+minerais-COAL-ORE: '&8Minerais de charbon'
+minerais-COAL-BLOCK: '&0Block de charbon'
+
+minerais-IRON-INGOT: '&fLingot de fer'
+minerais-IRON-ORE: '&fMinerais de fer'
+minerais-IRON-BLOCK: '&fBlock de fer'
+
+minerais-GOLD-INGOT: '&6Lingot d''or'
+minerais-GOLD-ORE: '&6Minerais d''or'
+minerais-GOLD-BLOCK: '&6Block d''or'
+
+minerais-INK-SACK: '&2Lapis lazuli' #lapis
+minerais-LAPIS-ORE: '&2Minerais de Lapis lazuli'
+minerais-LAPIS-BLOCK: '&2Block de Lapis lazuli'
+
+minerais-REDSTONE: '&cRedstone'
+minerais-REDSTONE-ORE: '&cMinerais de Redstone'
+minerais-REDSTONE-BLOCK: '&cBlock de Redstone'
+
+minerais-DIAMOND: '&bDiamant'
+minerais-DIAMOND-ORE: '&bMinerais de diamant'
+minerais-DIAMOND-BLOCK: '&bBlock de diamant'
+
+minerais-EMERALD: '&aEmeraude'
+minerais-EMERALD-ORE: '&aMinerais d''emeraude'
+minerais-EMERALD-BLOCK: '&aBlock d''emeraude'''
+
+minerais-QUARTZ: '&fQuartz'
+minerais-QUARTZ-ORE: '&fMinerais de Quartz'
+minerais-QUARTZ-BLOCK: '&fBlock de Quartz'
+
+minerais-MONSTER-EGG: '&aOeuf de Creeper' #Oeuf de Creeper
+minerais-OBSIDIAN: '&0Obsidienne'
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+permission-staff: 'wolfstaff.use'
+permission-ipsee: 'wolfstaff.ipsee'
+permission-staffchat: 'wolfstaff.staffchat'
+permission-kill: 'wolfstaff.kill'
+permission-reload: 'wolfstaff.reload'
+
+staffchat-format: '{PLAYER} §7» §f{MESSAGE}'
+staffchat-message-in-console: true
+
+send-kill-message: true

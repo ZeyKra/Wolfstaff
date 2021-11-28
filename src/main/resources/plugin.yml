@@ -1,0 +1,19 @@
+name: WolfStaff
+version: 1.0
+main: fr.zeykra.wolfstaff.WolfStaff
+authors: [ ZeyKra_ ]
+description: Plugin staff Wolffrost
+commands:
+  wolfstaff:
+    permission: wolfstaff.use
+    description: command wolfstaff
+  mod:
+    permission: wolfstaff.mod
+    description: command de staff
+  staffchat:
+    aliases: sc
+    permission: wolfstaff.staffchat
+    description: command staffchat
+  cgi:
+    permission: wolfstaff.cgi
+    description: command info d'un joueur
