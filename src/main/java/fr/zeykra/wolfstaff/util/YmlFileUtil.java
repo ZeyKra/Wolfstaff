@@ -40,7 +40,6 @@ public class YmlFileUtil {
             if(configSection == null) {
                 return ymlConfig.getString(key);
             }
-            System.out.println("ain't null");
             return configSection.getString(key);
         }
         return null;
@@ -166,4 +165,5 @@ public class YmlFileUtil {
     }
 
 }
+
 

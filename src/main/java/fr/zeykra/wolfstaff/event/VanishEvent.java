@@ -20,21 +20,23 @@ public class VanishEvent implements Listener {
 
 
     public static void vanishToggle(Player player) {
-        if(player.hasPermission(config.getString("permission-staff"))) {
+        if(player.hasPermission("wolfstaff.vanish")) {
             if(!ModCore.isVanished(player)) {
                 player.sendMessage(lang.getString("message-vanish"));
                 ModCore.addVanish(player);
+                player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 10, 102, false, false));
                 hideToAll(player);
             } else if(ModCore.isVanished(player)) {
                 player.sendMessage(lang.getString("message-unvanish"));
                 ModCore.removeVanish(player);
+                player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 10, 102, false, false));
                 revealToAll(player);
             }
         }
     }
 
     public static void vanish(Player player) {
-        if(player.hasPermission(config.getString("permission-staff"))) {
+        if(player.hasPermission("wolfstaff.vanish")) {
             if(!ModCore.isVanished(player)) {
                 ModCore.addVanish(player);
                 player.sendMessage(lang.getString("message-vanish"));
@@ -45,7 +47,7 @@ public class VanishEvent implements Listener {
     }
 
     public static void unVanish(Player player) {
-        if(player.hasPermission(config.getString("permission-staff"))) {
+        if(player.hasPermission("wolfstaff.vanish")) {
             if(ModCore.isVanished(player)) {
                 ModCore.removeVanish(player);
                 player.sendMessage(lang.getString("message-unvanish"));
@@ -70,7 +72,7 @@ public class VanishEvent implements Listener {
     }
 
     //Manage des joeur vanish
-    @EventHandler //hide des joueur déjà vanish
+    @EventHandler //hide des mod déjà vanish lors de la connexion d'un joueur
     public void onJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
         for(UUID lUUID : ModCore.vanishList) {
@@ -78,6 +80,16 @@ public class VanishEvent implements Listener {
             player.hidePlayer(vanished);
         }
     }
+
+    @EventHandler // hide d'un modo déjà vanish lorsque il se reco alors qu'il était en vniahs
+    public void onVanishedJoin(PlayerJoinEvent e) {
+        Player vanished = e.getPlayer();
+        if(ModCore.isVanished(vanished)) {
+            hideToAll(vanished);
+            vanished.sendMessage(lang.getString("message-join-vanished"));
+        }
+    }
+
 
 
 }

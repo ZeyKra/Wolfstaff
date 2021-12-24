@@ -61,6 +61,7 @@ public class GuiMinerais implements Listener {
         }
 
         viewer.openInventory(inv);
+        ModCore.setCurrentGui(viewer, "minerais");
     }
 
     @EventHandler

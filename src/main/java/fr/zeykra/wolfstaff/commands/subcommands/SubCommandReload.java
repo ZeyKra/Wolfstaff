@@ -31,8 +31,8 @@ public class SubCommandReload extends SubCommand {
             player.sendMessage(lang.getString("message-nopermission"));
             return;
         }
-        instance.reloadCfg();
-        player.sendMessage(lang.getString("message-reloaded"));
+        instance.reloadPluginConfg();
+        player.sendMessage(lang.getString("message-config-reloaded"));
 
     }
 }

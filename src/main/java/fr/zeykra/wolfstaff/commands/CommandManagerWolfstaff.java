@@ -1,7 +1,9 @@
 package fr.zeykra.wolfstaff.commands;
 
 import fr.zeykra.wolfstaff.commands.subcommands.SubCommandKill;
+import fr.zeykra.wolfstaff.commands.subcommands.SubCommandList;
 import fr.zeykra.wolfstaff.commands.subcommands.SubCommandReload;
+import fr.zeykra.wolfstaff.commands.subcommands.SubCommandTest;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,6 +20,7 @@ public class CommandManagerWolfstaff implements CommandExecutor {
     public CommandManagerWolfstaff() {
         subCommands.add(new SubCommandKill());
         subCommands.add(new SubCommandReload());
+        subCommands.add(new SubCommandList());
     }
 
     @Override
@@ -33,7 +36,11 @@ public class CommandManagerWolfstaff implements CommandExecutor {
                     }
                 }
             }else if(args.length == 0){
-
+                p.sendMessage("§8§m--------------------------------");
+                for (int i = 0; i < getSubcommands().size(); i++){
+                    p.sendMessage(getSubcommands().get(i).getSyntax() + " - " + getSubcommands().get(i).getDescription());
+                }
+                p.sendMessage("§8§m--------------------------------");
             }
 
         }

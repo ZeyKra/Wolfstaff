@@ -9,7 +9,8 @@ import java.util.logging.Logger;
 //Class avec les fonction pour generer les fichiers quand ils sont inexistant
 public enum FileEnum {
     CONFIG("config.yml"),
-    LANG("lang.yml");
+    LANG("lang.yml"),
+    SANCTIONGUI("sanctionsgui.yml");
 
     private final String fileName;
     private final File dataFolder;

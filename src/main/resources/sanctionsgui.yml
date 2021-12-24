@@ -1,0 +1,127 @@
+#pages
+#pages
+
+autre:
+  #slot
+  29:
+    name: '&8Rien'
+    item: 'stained_glass_pane'
+    lore: '&7Rien n''est préciser pour l''instant'
+    byte: 7
+    command: ''
+
+cheat:
+  29:
+    name: 'Anti KnockBack'
+    item: 'anvil'
+    lore: '&c30 &fJours'
+    command: 'ban {PLAYER} 30d anti kb'
+  30:
+    name: 'Kill Aura'
+    item: 'diamond_sword'
+    lore: '&c30 &fJours'
+    command: 'ban {PLAYER} 30d KillAura'
+  31:
+    name: 'AutoClick'
+    item: 'stone_sword'
+    lore: '&615 &fJours'
+    command: 'ban {PLAYER} 15d AutoClick'
+  32:
+    name: 'Trigger Bot'
+    item: 'gold_sword'
+    lore: '&c30 &fJours'
+    command: 'f {PLAYER} 15d TriggerBot'
+  33:
+    name: 'Auto soup'
+    item: 'mushroom_soup'
+    lore: '&c30 &fJours'
+    command: 'ban {PLAYER} 30d auto soup'
+  38:
+    name: 'Jesus'
+    item: 'raw_fish'
+    byte: 0
+    lore: '&615 &fJours'
+    command: 'ban {PLAYER} 15d Jésus Hack'
+  39:
+    name: 'SpeedHack'
+    item: 'iron_boots'
+    lore: '&c30 &fJours'
+    command: 'ban {PLAYER} 15d SpeedHack'
+  40:
+    name: 'Bow AimBot'
+    item: 'bow'
+    lore: '&c30 &fJours'
+    command: 'ban {PLAYER} 30d Bow AimBot'
+  41:
+    name: 'Bunny Hop'
+    item: 'rabbit_foot'
+    lore: '&c30 &fJours'
+    command: 'ban {PLAYER} 15d SpeedHack'
+  42:
+    name: 'Reach'
+    item: 'stick'
+    lore: '&c30 &fJours'
+    command: 'ban {PLAYER} 30d reach'
+
+gameplay:
+  29:
+    name: 'Duplication'
+    item: 'diamond'
+    lore: '&c30 &fJours'
+    command: 'ban {PLAYER} 30d Bug Duplication'
+  30:
+    name: 'Duplication++'
+    item: 'diamond_block'
+    lore: '&460 &fJours'
+    command: 'ban {PLAYER} 60d Bug Duplication à grande echelle'
+  31:
+    name: 'Exploit'
+    item: 'piston_base'
+    lore: '&c30 &fJours'
+    command: 'ban {PLAYER} 30d Exploit'
+  32:
+    name: 'Exploit++'
+    item: 'piston_sticky_base'
+    lore: '&460 &fJours'
+    command: 'ban {PLAYER} 60d Exploit bug'
+  33:
+    name: 'Anti-Jeux'
+    item: 'monster_egg'
+    byte: 50
+    lore: '&a2 &fJours'
+    command: 'ban {PLAYER} 2d Ant'
+
+chat:
+  29:
+    name: 'Menace DDOS'
+    item: 'paper'
+    lore: '&a3 &fJours'
+    command: 'ban {PLAYER} 30d anti kb'
+  30:
+    name: 'Insulte'
+    item: 'map'
+    byte: 5
+    lore: '&amute &72 &fheures'
+    command: 'pardon {PLAYER}'
+
+minage:
+  29:
+    name: 'X-Ray'
+    item: 'gold_pickaxe'
+    lore: '&c30 &fJours'
+    command: 'ban {PLAYER} 30d X-Ray'
+  30:
+    name: 'Nuker'
+    item: 'tnt'
+    lore: '&c30 &fJours'
+    command: 'ban {PLAYER} 30d Nuker'
+  31:
+    name: 'Fast Break'
+    item: 'nether_star'
+    lore: '&c30 &fJours'
+    command: 'ban {PLAYER} 30d Fast Break'
+  32:
+    name: 'Bot Minage'
+    item: 'dispenser'
+    lore: '&460 &fJours'
+    command: 'ban {PLAYER} 60d Bot minage'

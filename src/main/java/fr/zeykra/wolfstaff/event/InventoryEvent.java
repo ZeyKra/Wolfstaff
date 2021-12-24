@@ -8,10 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryDragEvent;
-import org.bukkit.event.inventory.InventoryPickupItemEvent;
-import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.inventory.*;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
@@ -95,6 +92,15 @@ public class InventoryEvent implements Listener {
         if(!ModCore.hasViewers(e.getPlayer())) { return; }
         for(Player tViewer : ModCore.getViewers(e.getPlayer())) {
             GuiCore.updateGui(tViewer, e.getPlayer());
+        }
+    }
+
+    //Global inventory event
+    @EventHandler
+    public void onInventoryClose(InventoryCloseEvent e) {
+        Player player = (Player) e.getPlayer();
+        if(ModCore.hasCurrentGui(player)) {
+            ModCore.removeCurrentGui(player);
         }
     }
 

@@ -18,6 +18,7 @@ public class ModInventory {
         inv.setItem(2, ModItems.invsee());
         inv.setItem(3, ModItems.informations());
         inv.setItem(4, ModItems.kill());
+        inv.setItem(5, ModItems.randomTP());
 
         inv.setItem(7, ModItems.vanishActivated());
         inv.setItem(8, ModItems.quit());

@@ -9,7 +9,6 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
@@ -37,10 +36,20 @@ public class ModCore implements Listener {
     //player qui sont entrain d'être regarder de façon a pouvoir gerer le gui dynamic ta mère
     public static Map<UUID, Set<UUID>> inSeeList = new HashMap<>();
 
-    //
-    public static HashMap<UUID, ItemStack[]> inventoryList = new HashMap<>();
+    //List contenant les inventaires des modérateurs
+    /*public static HashMap<UUID, ItemStack[]> inventoryList = new HashMap<>();
     public static void addInventory(Player player) {inventoryList.put(player.getUniqueId(), player.getInventory().getContents());}
-    public static void removeInventory(Player player) {inventoryList.remove(player.getUniqueId());}
+    public static void removeInventory(Player player) {inventoryList.remove(player.getUniqueId());} */
+
+    //Hashmap <UUID du Mod, UUID du Joueur > contenant les joueurs entrain de se faire sanctioner
+    public static HashMap<UUID, UUID> sanctionedPlayer = new HashMap<>();
+    public static void setSanctionedPlayer(Player mod, Player target) { sanctionedPlayer.put(mod.getUniqueId(), target.getUniqueId());}
+    public static void removeSanctionedPlayer(Player mod) { sanctionedPlayer.remove(mod.getUniqueId());}
+
+    //Hashmap <UUID du Mod, Nom du gui> permettant de savoir quelle gui le mod utilise
+    public static HashMap<UUID, String> currentGui = new HashMap<>();
+    public static void setCurrentGui(Player mod, String guiName) { currentGui.put(mod.getUniqueId(), guiName);}
+    public static void removeCurrentGui(Player mod) { currentGui.remove(mod.getUniqueId());}
 
     public static void addViewer(Player viewed, Player viewer) {
         //si le joueur a déjà une liste
@@ -100,15 +109,24 @@ public class ModCore implements Listener {
         return modList.contains(player.getUniqueId());
     }
 
-    //List
+    //Current Gui & SanctionedPlayer
+    public static boolean hasCurrentGui(Player player) { return currentGui.containsKey(player.getUniqueId()); }
+    public static String getCurrentGuiName(Player player) { return currentGui.get(player.getUniqueId()); }
+
+
+    public static boolean hasSanctionedPlayer(Player player) { return sanctionedPlayer.containsKey(player.getUniqueId()); }
+    public static Player getSanctionedPlayer(Player player) { return instance.getServer().getPlayer(sanctionedPlayer.get(player.getUniqueId())); }
+
+    /*
+     * Manage de la liste des staff en ligne
+     * Join , deco
+     *  + Quelques event en tant que mod
+     */
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
         if(player.hasPermission(config.getString("permission-staff"))) {
             onlineStaffList.add(player.getUniqueId());
-        }
-        if(isMod(player)) {
-            ModAction.mod(player,false);
         }
     }
     @EventHandler
@@ -116,6 +134,12 @@ public class ModCore implements Listener {
         Player player = e.getPlayer();
         if(player.hasPermission(config.getString("permission-staff")) && onlineStaffList.contains(player.getUniqueId())) {
             onlineStaffList.remove(player.getUniqueId());
+        }
+        if(hasSanctionedPlayer(player)) {
+            removeSanctionedPlayer(player);
+        }
+        if(hasCurrentGui(player)) {
+            removeCurrentGui(player);
         }
     }
 
@@ -139,11 +163,5 @@ public class ModCore implements Listener {
             e.setCancelled(true);
         }
     }
-
-    public static ItemStack[] getInventory(Player player) {
-        return inventoryList.get(player.getUniqueId());
-    }
-
-
 
 }

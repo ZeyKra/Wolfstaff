@@ -17,3 +17,10 @@ commands:
   cgi:
     permission: wolfstaff.cgi
     description: command info d'un joueur
+  vanish:
+    permission: wolfstaff.vanish
+    description: command pour se vanish
+  sanction:
+    permission: wolfstaf.sanction
+    description: sanctioner un joueur
+    aliases: [ sanctions, sct ]

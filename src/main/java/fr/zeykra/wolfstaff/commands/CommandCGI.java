@@ -14,7 +14,7 @@ public class CommandCGI implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(!(sender instanceof Player)) {
-            sender.sendMessage("Commane uniquement executable par le joueur");
+            sender.sendMessage("Commande uniquement executable par le joueur");
         }
         Player player = (Player) sender;
         Player viewed = instance.getServer().getPlayer(args[0]);

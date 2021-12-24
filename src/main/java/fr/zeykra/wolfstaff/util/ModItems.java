@@ -78,18 +78,26 @@ public class ModItems implements Listener {
         return item;
     }
 
+    public static ItemStack randomTP() {
+        ItemStack item = new ItemStack(Material.DAYLIGHT_DETECTOR); //would be purple dye
+        ItemMeta im = item.getItemMeta();
+        im.setDisplayName(ColorUtil.format(lang.getString("item-randomtp-name")));
+        item.setItemMeta(im);
+        return item;
+    }
+
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent e) {
         if(!e.getItemInHand().hasItemMeta()) { return; }
-        if(e.getItemInHand().getItemMeta() == invsee().getItemMeta() ||
-                e.getItemInHand().getItemMeta() == freeze().getItemMeta() ||
-                e.getItemInHand().getItemMeta() == minerais().getItemMeta() ||
-                e.getItemInHand().getItemMeta() == kill().getItemMeta()
+        if(e.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(invsee().getItemMeta().getDisplayName()) ||
+                e.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(freeze().getItemMeta().getDisplayName()) ||
+                e.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(minerais().getItemMeta().getDisplayName()) ||
+                e.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(kill().getItemMeta().getDisplayName()) ||
+                e.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(randomTP().getItemMeta().getDisplayName()) ||
+                e.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(quit().getItemMeta().getDisplayName())
         ) {
             e.setCancelled(true);
         }
     }
-
-
 
 }

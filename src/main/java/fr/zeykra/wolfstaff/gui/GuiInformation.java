@@ -7,6 +7,7 @@ import fr.zeykra.wolfstaff.util.TimeUtil;
 import fr.zeykra.wolfstaff.util.YmlFileUtil;
 import net.minecraft.server.v1_8_R3.EntityPlayer;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
@@ -36,7 +37,9 @@ public class GuiInformation implements Listener {
         inv.setItem(19, dynamicItem(target, DynamicItemEnum.CHESTPLATE, viewer));
         inv.setItem(28, dynamicItem(target, DynamicItemEnum.LEGGINGS, viewer));
 
-        inv.setItem(30, dynamicItem(target, DynamicItemEnum.HEURES, viewer));
+        inv.setItem(13, dynamicItem(target, DynamicItemEnum.HEURES, viewer));
+        inv.setItem(14, dynamicItem(target, DynamicItemEnum.SANCTION, viewer));
+        inv.setItem(15, dynamicItem(target, DynamicItemEnum.SOON, viewer));
 
         inv.setItem(37, dynamicItem(target, DynamicItemEnum.BOOTS, viewer));
         inv.setItem(40, dynamicItem(target, DynamicItemEnum.IP, viewer));
@@ -44,6 +47,7 @@ public class GuiInformation implements Listener {
         inv.setItem(42, dynamicItem(target, DynamicItemEnum.PING, viewer));
 
         viewer.openInventory(inv);
+        ModCore.setCurrentGui(viewer, "information");
     }
 
 
@@ -120,7 +124,13 @@ public class GuiInformation implements Listener {
             case HEURES:
                 dynamicItem = new ItemStack(Material.WATCH, 1);
                 meta = dynamicItem.getItemMeta();
-                meta.setDisplayName(TimeUtil.timeFormat(player.getPlayerTime()));
+                meta.setDisplayName(ChatColor.YELLOW + TimeUtil.timeFormat(player.getPlayerTime()));
+                dynamicItem.setItemMeta(meta);
+                break;
+            case SANCTION:
+                dynamicItem = new ItemStack(Material.ANVIL, 1);
+                meta = dynamicItem.getItemMeta();
+                meta.setDisplayName("§7Sanctioner le joueur");
                 dynamicItem.setItemMeta(meta);
                 break;
             default:
@@ -152,7 +162,8 @@ public class GuiInformation implements Listener {
 
     @EventHandler
     public void onInventoryClick(final InventoryClickEvent e) {
-        if (!e.getInventory().getName().contains("CGI+") && !ModCore.isMod((Player) e.getWhoClicked())) return;
+        if(!ModCore.hasCurrentGui((Player) e.getWhoClicked())) { return; }
+        if (!ModCore.getCurrentGuiName((Player) e.getWhoClicked()).equalsIgnoreCase("information")) return;
 
         e.setCancelled(true);
 
@@ -160,27 +171,13 @@ public class GuiInformation implements Listener {
         if (clickedItem == null || clickedItem.getType() == Material.AIR) return;
 
         final Player p = (Player) e.getWhoClicked();
-
-        switch(e.getRawSlot()) {
-            case 1:
-                p.sendMessage("nigger");
-                break;
-            case 2:
-                p.sendMessage("nigger");
-                break;
-            default:
-                e.setCancelled(true);
-                break;
+        Player target = instance.getServer().getPlayer(e.getInventory().getName().replace("CGI+ ", ""));
+        if (e.getSlot() == 14) {
+            p.performCommand("sanction " + target.getName());
         }
     }
 
     // Cancel dragging in our inventory
-    @EventHandler
-    public void onInventoryClick(final InventoryDragEvent e) {
-        if (e.getInventory().getName().contains("CGI+") && ModCore.isMod((Player) e.getWhoClicked())) {
-            e.setCancelled(true);
-        }
-    }
 
     /*
             for (Map.Entry<String, Integer> e : map.entrySet())

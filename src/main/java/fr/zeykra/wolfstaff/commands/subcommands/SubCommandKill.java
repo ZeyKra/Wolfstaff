@@ -37,13 +37,12 @@ public class SubCommandKill extends SubCommand {
             return;
         }
 
-
         //System pour pas qu'un joueur appuy 6600x sur le message de kill avec l'item KIll
         if (args.length >= 3) {
             UUID thatUUID = UUID.fromString(args[2]);
             //Si la session n'est pas egal a la session defini envoie du message
-            System.out.println("/" + ModAction.getConfirmKillSession(player.getUniqueId()) + "/");
-            System.out.println("/" + thatUUID + "/");
+            //System.out.println("/" + ModAction.getConfirmKillSession(player.getUniqueId()) + "/");
+            //System.out.println("/" + thatUUID + "/");
             if ( !ModAction.containConfirmKillSession(player.getUniqueId())||
                     !ModAction.getConfirmKillSession(player.getUniqueId()).toString().equals(thatUUID.toString())) {
                 player.sendMessage(lang.getString("message-message-expired"));

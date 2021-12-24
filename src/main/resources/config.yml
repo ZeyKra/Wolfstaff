@@ -1,10 +1,19 @@
+#Permissions
 permission-staff: 'wolfstaff.use'
 permission-ipsee: 'wolfstaff.ipsee'
 permission-staffchat: 'wolfstaff.staffchat'
 permission-kill: 'wolfstaff.kill'
 permission-reload: 'wolfstaff.reload'
+permission-list: 'wolfstaff.list'
+permission-star: 'wolfstaff.*'
 
+#Staff chat parameters
 staffchat-format: '{PLAYER} §7» §f{MESSAGE}'
 staffchat-message-in-console: true
 
+#Envoie du message de kill au joueur lorsqu'un modo le tue avec l'item prevu pour
 send-kill-message: true
+
+#
+guifreeze-item-name: '&dFreeze'
+guifreeze-item-lore: 'Vous êtes actuellement freeze veuillez rejoindre le discord'
